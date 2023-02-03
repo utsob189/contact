@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>contact</title>
+  <style>
+  body{
+    padding: 0px;
+    margin: 0px;
+  }
+  h1{
+    margin-left: 30px;
+  }
+  
+ .contact-aria{
+   margin-left: 25px;
+ }
+  
+  input[type="text"],[type="email"],[type="messag"]{
+    height: 30px;
+    width: 380px;
+    padding: 8px;
+    background: whitesmoke;
+    border: 2px solid white;
+    border-radius: 7px;
+  }
+  
+  .area{
+  
+    height: 69px;
+    padding: 10px;
+    width: 340px;
+    margin-left: 18px;
+    font-size: 10px;
+  }
+  
+  
+  input[type="submit"]{
+    margin-top: 10px;
+    margin-left: 1px;
+    width: 400px;
+    height: 35px;
+    color: white;
+    font-size: 19px;
+    border-radius: 6px;
+    border: none;
+    background-color: blue;
+  }
+ .disclaimer{
+   margin-top: 70px;
+ }
+ .disclaimer h2{
+   text-align: center;
+   color: black;
+ }
+
+  </style>
+  
+</head>
+
+<body>
+  <h1>Contact with UTSOB </h1>
+  <form method="POST" name="google-sheet">
+    <div class="contact-aria">
+      
+    <input type="text" name="visitor" placeholder="Enter your name" required><br>
+    
+    <input type="email" name="mail" placeholder="Enter your email" required><br>
+    
+    
+    <textarea class="area" type="messag" name="chat" placeholder="Type your Text"></textarea>
+    
+    <input type="submit" value="Send">
+  
+    </div>
+  </form>
+    
+    <div class="disclaimer">
+    <h2>Disclaimer</h2>
+    <p>Your message will be replied to your email within 72 hours of receiving it. Thank you for emailing.</p>
+    </div>
+ 
+ 
+ <script type="text/javascript">
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbzt0eHeoew5oqjHYp58hHsn1bsEbxzFDzwSyQN7bm2VhVE1Hjs-LA7HKg94LQXNviqnJA/exec'
+   const form = document.forms['google-sheet']
+ 
+   form.addEventListener('submit', e => {
+     e.preventDefault()
+     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+       .then(response => alert(" your data save"))
+       .catch(error => console.error('Error!', error.message))
+   })
+ </script>
+  
+  
+</body>
+</html>
